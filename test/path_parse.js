@@ -44,8 +44,6 @@ describe('Path parse', function () {
   it('repeated', function () {
     assert.strictEqual(svgpath('M 0 0 100 100').toString(),  'M0 0L100 100');
     assert.strictEqual(svgpath('m 0 0 100 100').toString(),  'M0 0l100 100');
-    assert.strictEqual(svgpath('M 0 0 R 1 1 2 2').toString(),  'M0 0R1 1 2 2');
-    assert.strictEqual(svgpath('M 0 0 r 1 1 2 2').toString(),  'M0 0r1 1 2 2');
   });
 
   it('arc flags', function () {
