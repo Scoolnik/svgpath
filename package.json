@@ -18,7 +18,7 @@
     "lint": "eslint .",
     "test": "npm run lint && nyc mocha",
     "covreport": "nyc report --reporter html && nyc report --reporter lcov",
-    "benchmark": "benchmark/benchmark.js",
+    "benchmark": "node benchmark/benchmark.js",
     "benchmark-prepare": "mkdir -p benchmark/implementations/2.4.1 && git checkout 2.4.1 && cp index.js benchmark/implementations/2.4.1 && cp -R --parents **/*.js benchmark/implementations/2.4.1 && git checkout master"
   },
   "files": [
@@ -27,9 +27,11 @@
     "lib/"
   ],
   "devDependencies": {
+    "@codspeed/vitest-plugin": "^5.2.0",
     "benchmark": "^2.1.1",
     "eslint": "^8.5.0",
     "mocha": "^10.1.0",
-    "nyc": "^15.0.1"
+    "nyc": "^15.0.1",
+    "vitest": "^4.0.18"
   }
 }

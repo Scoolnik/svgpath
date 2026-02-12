@@ -1,0 +1,27 @@
+name: CodSpeed Benchmarks
+
+on:
+    push:
+    pull_request:
+    # `workflow_dispatch` allows CodSpeed to trigger backtest
+    # performance analysis in order to generate initial data.
+    workflow_dispatch:
+
+permissions: # optional for public repositories
+    contents: read # required for actions/checkout
+    id-token: write # required for OIDC authentication with CodSpeed
+
+jobs:
+    benchmarks:
+        name: Run benchmarks
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v5
+            - uses: actions/setup-node@v6
+            - name: Install dependencies
+              run: npm install
+            - name: Run the benchmarks
+              uses: CodSpeedHQ/action@v4
+              with:
+                  mode: simulation
+                  run: npm exec vitest bench
