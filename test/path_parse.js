@@ -60,13 +60,13 @@ describe('Path parse', function () {
     assert.strictEqual(svgpath('U').err, 'SvgPath: bad command U (at pos 0)');
     assert.strictEqual(svgpath('M0 0G 1').err, 'SvgPath: bad command G (at pos 4)');
     assert.strictEqual(svgpath('z').err, 'SvgPath: string should start with `M` or `m`');
+    assert.strictEqual(svgpath('M0 0a2 2 2 2 2 2 2').err, 'SvgPath: arc flag can be 0 or 1 only (at pos 11)');
     assert.strictEqual(svgpath('M+').err, 'SvgPath: param should start with 0..9 or `.` (at pos 2)');
     assert.strictEqual(svgpath('M00').err, 'SvgPath: numbers started with `0` such as `09` are illegal (at pos 1)');
     assert.strictEqual(svgpath('M0e').err, 'SvgPath: invalid float exponent (at pos 3)');
     assert.strictEqual(svgpath('M0').err, 'SvgPath: missed param (at pos 2)');
     assert.strictEqual(svgpath('M0,0,').err, 'SvgPath: missed param (at pos 5)');
     assert.strictEqual(svgpath('M0 .e3').err, 'SvgPath: invalid float exponent (at pos 4)');
-    assert.strictEqual(svgpath('M0 0a2 2 2 2 2 2 2').err, 'SvgPath: arc flag can be 0 or 1 only (at pos 11)');
   });
 
   it('keeps valid commands', function () {
