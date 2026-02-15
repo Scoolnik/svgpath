@@ -32,6 +32,9 @@ describe("Operations", () => {
 	bench("translate", () => {
 		SvgPath.from(one_path).translate(-150, 150).__evaluateStack();
 	});
+	bench("translate+scale", () => {
+		SvgPath.from(one_path).translate(-150, 150).scale(2, 2).__evaluateStack();
+	});
 	bench("abs", () => {
 		SvgPath.from(one_path).abs();
 	});
@@ -75,6 +78,9 @@ describe("Operations on big", () => {
 	});
 	bench("translate", () => {
 		SvgPath.from(big).translate(-150, 150).__evaluateStack();
+	});
+	bench("translate+scale", () => {
+		SvgPath.from(big).translate(-150, 150).scale(2, 2).__evaluateStack();
 	});
 	bench("abs big", () => {
 		SvgPath.from(big).abs();
