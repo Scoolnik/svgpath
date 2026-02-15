@@ -3,3 +3,4 @@ coverage
 node_modules
 benchmark/implementations
 \!benchmark/implementations/current
+dist

@@ -28,6 +28,7 @@
     "@codspeed/vitest-plugin": "^5.2.0",
     "@vitest/coverage-v8": "^4.0.18",
     "eslint": "^8.5.0",
+    "tsdown": "^0.20.3",
     "vitest": "^4.0.18"
   }
 }
