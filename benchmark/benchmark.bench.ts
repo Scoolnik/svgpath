@@ -10,18 +10,6 @@ const one_path = fs.readFileSync(
 );
 const long = "M 4.8173765432098765 -9.12666320366964 Z".repeat(5000);
 
-describe("Big", () => {
-	bench('.from("big.txt")', () => {
-		SvgPath.from(big);
-	});
-});
-
-describe("Regular", () => {
-	bench('.from("one_path.txt")', () => {
-		SvgPath.from(one_path);
-	});
-});
-
 describe("Operations", () => {
 	bench("parse", () => {
 		SvgPath.from(one_path);
