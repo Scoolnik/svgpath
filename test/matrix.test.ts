@@ -1,8 +1,5 @@
-'use strict';
-
-
-var assert = require('assert');
-var matrix = require('../lib/matrix');
+import { describe, assert, it } from 'vitest';
+import matrix from '../lib/matrix';
 
 var m;
 
@@ -12,22 +9,22 @@ describe('Matrix', function () {
     m = matrix();
 
     m.matrix([ 1, 0, 0, 1, 0, 0 ]);
-    assert.strictEqual(m.queue.length, 0);
+    assert.strictEqual(m.queue!.length, 0);
 
     m.translate(0, 0);
-    assert.strictEqual(m.queue.length, 0);
+    assert.strictEqual(m.queue!.length, 0);
 
     m.scale(1, 1);
-    assert.strictEqual(m.queue.length, 0);
+    assert.strictEqual(m.queue!.length, 0);
 
     m.rotate(0);
-    assert.strictEqual(m.queue.length, 0);
+    assert.strictEqual(m.queue!.length, 0);
 
     m.skewX(0);
-    assert.strictEqual(m.queue.length, 0);
+    assert.strictEqual(m.queue!.length, 0);
 
     m.skewY(0);
-    assert.strictEqual(m.queue.length, 0);
+    assert.strictEqual(m.queue!.length, 0);
   });
 
   it('do nothing on empty queue', function () {
