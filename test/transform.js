@@ -206,7 +206,7 @@ describe('Transform', function () {
 
       // Emulate first 'm'.
       p = svgpath('m70 70 70 70');
-      p.segments[0][0] = 'm';
+      p.segments[0][0] = 109;
 
       assert.strictEqual(
         p.translate(100, 100).toString(),
