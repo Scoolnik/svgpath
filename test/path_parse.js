@@ -5,7 +5,7 @@ var assert  = require('assert');
 var fs      = require('fs');
 var path    = require('path');
 
-var svgpath = require('../');
+var svgpath = require('../lib/svgpath');
 
 
 describe('Path parse', function () {

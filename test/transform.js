@@ -2,8 +2,7 @@
 
 
 var assert  = require('assert');
-var svgpath = require('../');
-
+var svgpath = require('../lib/svgpath');
 
 describe('Transform', function () {
 
