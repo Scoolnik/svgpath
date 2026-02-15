@@ -26,8 +26,20 @@ describe("Operations", () => {
 	bench("parse", () => {
 		SvgPath.from(one_path);
 	});
+	bench("scale", () => {
+		SvgPath.from(one_path).scale(2, 2).__evaluateStack();
+	});
+	bench("translate", () => {
+		SvgPath.from(one_path).translate(-150, 150).__evaluateStack();
+	});
 	bench("abs", () => {
 		SvgPath.from(one_path).abs();
+	});
+	bench("rel", () => {
+		SvgPath.from(one_path).rel();
+	});
+	bench("rotate", () => {
+		SvgPath.from(one_path).rotate(90).__evaluateStack();
 	});
 	bench("unshort", () => {
 		SvgPath.from(one_path).unshort();
@@ -51,6 +63,50 @@ describe("Operations", () => {
 	});
 	bench("toString", () => {
 		SvgPath.from(one_path).toString();
+	});
+});
+
+describe("Operations on big", () => {
+	bench("parse big", () => {
+		SvgPath.from(big);
+	});
+	bench("scale", () => {
+		SvgPath.from(big).scale(2, 2).__evaluateStack();
+	});
+	bench("translate", () => {
+		SvgPath.from(big).translate(-150, 150).__evaluateStack();
+	});
+	bench("abs big", () => {
+		SvgPath.from(big).abs();
+	});
+	bench("rel big", () => {
+		SvgPath.from(big).rel();
+	});
+	bench("rotate big", () => {
+		SvgPath.from(big).rotate(90).__evaluateStack();
+	});
+	bench("unshort big", () => {
+		SvgPath.from(big).unshort();
+	});
+	bench("unarc big", () => {
+		SvgPath.from(big).unarc();
+	});
+	bench("iterate big", () => {
+		SvgPath.from(big).iterate((v) => {
+			if (v[0] === "z") {
+				v[0] = "Z";
+			}
+		});
+	});
+	bench("lazy iterate big", () => {
+		SvgPath.from(big).iterate((v) => {
+			if (v[0] === "z") {
+				v[0] = "Z";
+			}
+		}, true);
+	});
+	bench("toString big", () => {
+		SvgPath.from(big).toString();
 	});
 });
 
