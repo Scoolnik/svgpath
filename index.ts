@@ -85,5 +85,5 @@ export interface SvgPath {
 	): SvgPath;
 }
 
-export default svgpath;
+export default svgpath as SvgPath;
 export * as commands from "./lib/commands";
