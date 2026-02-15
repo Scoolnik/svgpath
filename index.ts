@@ -1,16 +1,40 @@
 import svgpath from "./lib/svgpath";
-import commands from "./lib/commands";
+import { SvgCommand } from "./lib/commands";
 
-export type MoveToAbs = [typeof commands["M"], number, number];
-export type LineToAbs = [typeof commands["L"], number, number];
-export type HorizontalLineToAbs = [typeof commands["H"], number];
-export type VerticalLineToAbs = [typeof commands["V"], number];
-export type CurveToAbs = [typeof commands["C"], number, number, number, number, number, number];
-export type SmoothCurveToAbs = [typeof commands["S"], number, number, number, number];
-export type QuadraticBézierCurveToAbs = [typeof commands["Q"], number, number, number, number];
-export type SmoothQuadraticBézierCurveToAbs = [typeof commands["T"], number, number];
+export type MoveToAbs = [(typeof SvgCommand)["M"], number, number];
+export type LineToAbs = [(typeof SvgCommand)["L"], number, number];
+export type HorizontalLineToAbs = [(typeof SvgCommand)["H"], number];
+export type VerticalLineToAbs = [(typeof SvgCommand)["V"], number];
+export type CurveToAbs = [
+	(typeof SvgCommand)["C"],
+	number,
+	number,
+	number,
+	number,
+	number,
+	number,
+];
+export type SmoothCurveToAbs = [
+	(typeof SvgCommand)["S"],
+	number,
+	number,
+	number,
+	number,
+];
+export type QuadraticBézierCurveToAbs = [
+	(typeof SvgCommand)["Q"],
+	number,
+	number,
+	number,
+	number,
+];
+export type SmoothQuadraticBézierCurveToAbs = [
+	(typeof SvgCommand)["T"],
+	number,
+	number,
+];
 export type EllipticalArcAbs = [
-	typeof commands["A"],
+	(typeof SvgCommand)["A"],
 	number,
 	number,
 	number,
@@ -20,16 +44,40 @@ export type EllipticalArcAbs = [
 	number,
 ];
 
-export type MoveToRel = [typeof commands["m"], number, number];
-export type LineToRel = [typeof commands["l"], number, number];
-export type HorizontalLineToRel = [typeof commands["h"], number];
-export type VerticalLineToRel = [typeof commands["v"], number];
-export type CurveToRel = [typeof commands["c"], number, number, number, number, number, number];
-export type SmoothCurveToRel = [typeof commands["s"], number, number, number, number];
-export type QuadraticBézierCurveToRel = [typeof commands["q"], number, number, number, number];
-export type SmoothQuadraticBézierCurveToRel = [typeof commands["t"], number, number];
+export type MoveToRel = [(typeof SvgCommand)["m"], number, number];
+export type LineToRel = [(typeof SvgCommand)["l"], number, number];
+export type HorizontalLineToRel = [(typeof SvgCommand)["h"], number];
+export type VerticalLineToRel = [(typeof SvgCommand)["v"], number];
+export type CurveToRel = [
+	(typeof SvgCommand)["c"],
+	number,
+	number,
+	number,
+	number,
+	number,
+	number,
+];
+export type SmoothCurveToRel = [
+	(typeof SvgCommand)["s"],
+	number,
+	number,
+	number,
+	number,
+];
+export type QuadraticBézierCurveToRel = [
+	(typeof SvgCommand)["q"],
+	number,
+	number,
+	number,
+	number,
+];
+export type SmoothQuadraticBézierCurveToRel = [
+	(typeof SvgCommand)["t"],
+	number,
+	number,
+];
 export type EllipticalArcRel = [
-	typeof commands["a"],
+	(typeof SvgCommand)["a"],
 	number,
 	number,
 	number,
@@ -39,7 +87,7 @@ export type EllipticalArcRel = [
 	number,
 ];
 
-export type ClosePath = [typeof commands["Z"] | typeof commands["z"]];
+export type ClosePath = [(typeof SvgCommand)["Z"] | (typeof SvgCommand)["z"]];
 
 export type Segment =
 	| MoveToAbs
@@ -86,4 +134,4 @@ export interface SvgPath {
 }
 
 export default svgpath as SvgPath;
-export * as commands from "./lib/commands";
+export { SvgCommand } from "./lib/commands";
